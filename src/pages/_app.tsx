@@ -2,11 +2,11 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ReactElement, ReactNode, useState } from 'react'
 import { QueryClient, QueryClientProvider, HydrationBoundary } from '@tanstack/react-query'
-import { useLoader } from '../../assets/hooks/useLoader'
+import { useLoader } from '@/hooks/useLoader'
 import '../styles/nprogress.css'
 import { NextPage } from 'next'
 
-export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+export type NextPageWithLayout<P = Record<string, unknown>, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }
 

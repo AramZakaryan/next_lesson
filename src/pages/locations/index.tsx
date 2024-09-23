@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
-import { Location, Response } from '../../../assets/api/api.types'
-import { Header } from '../../../components/header/Header'
-import { getLayout } from '../../../components/layout/getLayout'
+import { Location, Response } from 'assets/api/api.types'
+import { getPageLayout } from 'components/layout/getPageLayout'
+import Head from 'next/head'
 
 const getLocations = async (): Promise<Response<Location>> => {
   const res = await fetch('https://rickandmortyapi.com/api/location', {
@@ -27,25 +27,30 @@ function Locations() {
     queryFn: getLocations
   })
 
-  if (isLoading) return <p>Loading...</p>
+  if (isLoading) return <p className="text-center">Loading...</p>
 
-  if (error) return <p>Error loading locations</p>
+  if (error) return <p className="text-center text-red-500">Error loading locations</p>
 
   if (!locations) {
     return null
   }
-  return <>
-    <Header />
-    <h1 className={'my-3'}>locations</h1>
-    <ul>
-      {locations.results.map(l => <li key={l.id}>
-        {`${l.id}. ${l.name}`}
-      </li>)
-      }
-    </ul>
-  </>
+
+  return (
+    <>
+      <Head>
+        <title>Locations</title>
+      </Head>
+      <ul className="flex flex-col items-center space-y-4">
+        {locations.results.map(l => (
+          <li key={l.id} className="bg-white shadow-md rounded-lg p-4 w-full max-w-md text-left">
+            {`${l.id}. ${l.name}`}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
-Locations.getLayout = getLayout
+Locations.getLayout = getPageLayout
 
 export default Locations

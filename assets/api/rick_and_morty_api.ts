@@ -7,7 +7,7 @@ export class RickAndMortyApi {
   }
 
   public getCharacters() {
-    return this.instance.get<Response<Character[]>>('character')
+    return this.instance.get<Response<Character>>('character')
       .then((res) => res.data)
   }
 

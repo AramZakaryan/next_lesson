@@ -13,6 +13,7 @@
     "@tanstack/react-query-devtools": "^5.56.2",
     "@types/nprogress": "^0.2.3",
     "axios": "^1.7.7",
+    "clsx": "^2.1.1",
     "dotenv": "^16.4.5",
     "next": "14.2.12",
     "nprogress": "^0.2.0",

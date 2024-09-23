@@ -1,11 +1,14 @@
 import { NextPageWithLayout } from '@/pages/_app'
-import { getLayout } from '../../components/layout/getLayout'
+import { getHomeLayout } from 'components/layout/getHomeLayout'
+import Head from 'next/head'
 
 const Home: NextPageWithLayout = () => {
-  return <p>hello world</p>
+  return <>
+    <Head><title>Main Page</title></Head>
+    <p>Hello!</p>
+  </>
 }
 
-
-Home.getLayout = getLayout
+Home.getLayout = getHomeLayout
 
 export default Home

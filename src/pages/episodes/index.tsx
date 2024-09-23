@@ -1,7 +1,7 @@
-import { api } from '../../../assets/api/api'
-import { Episode, Response } from '../../../assets/api/api.types'
-import { Header } from '../../../components/header/Header'
-import { getLayout } from '../../../components/layout/getLayout'
+import { api } from 'assets/api/api'
+import { Episode, Response } from 'assets/api/api.types'
+import { getPageLayout } from 'components/layout/getPageLayout'
+import Head from 'next/head'
 
 export const getServerSideProps = async () => {
   const episodes = await api.rickAndMortyApi.getEpisodes()
@@ -16,17 +16,22 @@ export const getServerSideProps = async () => {
 type EpisodesProps = { episodes: Response<Episode> }
 
 function Episodes({ episodes }: EpisodesProps) {
-  return <>
-    <Header />
-    <h1 className={'my-3'}>episodes</h1>
-    <ul>
-      {episodes.results.map(ep => <ul key={ep.id}>
-        {`${ep.id}. ${ep.name}`}
-      </ul>)}
-    </ul>
-  </>
+  return (
+    <>
+      <Head>
+        <title>Episodes</title>
+      </Head>
+      <ul className="flex flex-col items-center space-y-4">
+        {episodes.results.map(ep => (
+          <li key={ep.id} className="bg-white shadow-md rounded-lg p-4 w-full max-w-md text-left">
+            {`${ep.id}. ${ep.name}`}
+          </li>
+        ))}
+      </ul>
+    </>
+  )
 }
 
-Episodes.getLayout = getLayout
+Episodes.getLayout = getPageLayout
 
 export default Episodes
