@@ -7,6 +7,7 @@ export const Navbar = () => {
       <Link href="/characters" className="text-blue-600 hover:text-blue-800">characters</Link>
       <Link href="/episodes" className="text-blue-600 hover:text-blue-800">episodes</Link>
       <Link href="/locations" className="text-blue-600 hover:text-blue-800">locations</Link>
+      <Link href="/experiment" className="text-blue-600 hover:text-blue-800">experiment</Link>
     </nav>
   )
 }

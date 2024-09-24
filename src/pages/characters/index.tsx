@@ -3,12 +3,15 @@ import { Character, Response } from 'assets/api/api.types'
 import { getPageLayout } from 'components/layout/getPageLayout'
 import Link from 'next/link'
 import Head from 'next/head'
-import Image  from 'next/image'
+import Image from 'next/image'
 
 
 export const getStaticProps = async () => {
   const characters = await api.rickAndMortyApi.getCharacters()
-  return { props: { characters } }
+  return {
+    props: { characters },
+    revalidate: 60 // Page will regenerate every 60 seconds (1 minute)
+  }
 }
 
 type CharactersProps = { characters: Response<Character> }
@@ -58,5 +61,6 @@ function Characters({ characters }: CharactersProps) {
 Characters.getLayout = getPageLayout
 
 export default Characters
+
 
 
