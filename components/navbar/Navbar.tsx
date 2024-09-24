@@ -8,6 +8,7 @@ export const Navbar = () => {
       <Link href="/episodes" className="text-blue-600 hover:text-blue-800">episodes</Link>
       <Link href="/locations" className="text-blue-600 hover:text-blue-800">locations</Link>
       <Link href="/experiment" className="text-blue-600 hover:text-blue-800">experiment</Link>
+      <Link href="/private" className="text-blue-600 hover:text-blue-800">private</Link>
     </nav>
   )
 }
