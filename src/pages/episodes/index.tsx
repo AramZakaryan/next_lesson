@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { GetServerSideProps } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  // // Set the Cache-Control header to cache the response for 60 seconds
+  // Set the Cache-Control header to cache the response for 60 seconds
   res.setHeader('Cache-Control', 'public, s-maxage=60, stale-while-revalidate=30')
 
   const episodes = await api.rickAndMortyApi.getEpisodes()

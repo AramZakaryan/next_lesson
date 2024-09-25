@@ -5,7 +5,7 @@ export const LoginNavigate = ({ children }: PropsWithChildren) => {
 
   const router = useRouter()
 
-  const Auth = false
+  const Auth = true
 
   if (!Auth) void router.push('/')
 

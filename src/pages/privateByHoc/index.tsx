@@ -3,17 +3,17 @@ import { getHomeLayout } from 'components/layout/getHomeLayout'
 import Head from 'next/head'
 import { LoginNavigate } from '../../../hoc/LoginNavigate'
 
-const Private: NextPageWithLayout = () => {
+const PrivateByHoc: NextPageWithLayout = () => {
   return <>
     <LoginNavigate>
       <div>
-        <Head><title>Private Page</title></Head>
-        <p>This is private!</p>
+        <Head><title>PrivateByHoc Page</title></Head>
+        <p>This is private by hoc page!</p>
       </div>
     </LoginNavigate>
   </>
 }
 
-Private.getLayout = getHomeLayout
+PrivateByHoc.getLayout = getHomeLayout
 
-export default Private
+export default PrivateByHoc
